@@ -1,0 +1,15 @@
+
+
+
+{% block body %}
+        <h1>Liste de toutes les séries</h1>
+<ul id="liste_séries">
+    {% for serie in series %}
+        <li>{{ serie.name }}</li>
+        <li>{{ serie.type }}</li>
+        <li>{{ serie.url }}</li>
+        <li>{{ serie.year }}</li>
+        {{ response }}
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace SubjectBundle\DataFixtures\ORM;
+namespace TvShowManagerBundle\DataFixtures\ORM;
 
 use TvShowManagerBundle\Entity\TvShow;
 use TvShowManagerBundle\Entity\Episode;

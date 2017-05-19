@@ -1,0 +1,7 @@
+tv_show_manager_homepage:
+    path:     /
+    defaults: { _controller: TvShowManagerBundle:Default:index }
+
+tv_show_manager_lister_series:
+    path:     /tvshow/slist
+    defaults: { _controller: TvShowManagerBundle:Default:sList }
