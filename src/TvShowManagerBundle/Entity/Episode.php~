@@ -1,0 +1,11 @@
+<?php
+
+namespace TvShowManagerBundle\Entity;
+
+/**
+ * Episode
+ */
+class Episode
+{
+
+}

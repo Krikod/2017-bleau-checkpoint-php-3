@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}TvShowManagerBundle:TvShow:list{% endblock %}
+
+{% block body %}
+
+
+<h1>tvshows 2</h1>
+    <div>
+        {% for tvshow in tvshows %}
+
+            <h1>{{ tvshow.name }}</h1>
+            {% for episode in tvshow.episodes %}
+                {{ episode.name }}
+            {% endfor %}
+            <h2><a href="{{ path('show', { 'id': tvshow.id }) }}">voir</a></h2>
+
+        {% endfor %}
+   </div>
+{% endblock %}
