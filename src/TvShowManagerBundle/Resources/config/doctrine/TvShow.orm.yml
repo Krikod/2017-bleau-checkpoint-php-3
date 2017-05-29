@@ -25,6 +25,7 @@ TvShowManagerBundle\Entity\TvShow:
     oneToMany:
         episodes:
             targetEntity: TvShowManagerBundle\Entity\Episode
-            mappedBy: tvShow
+            mappedBy: tvShow # nom du champ dans table propriétaire "episode"
+
 # => initialize the collection in
 # the __construct() method of the entity

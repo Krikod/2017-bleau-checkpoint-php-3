@@ -3,5 +3,21 @@ tv_show_manager_homepage:
     defaults: { _controller: TvShowManagerBundle:Default:index }
 
 tv_show_manager_lister_series:
-    path:     /tvshow/slist
+    path:     /slist
     defaults: { _controller: TvShowManagerBundle:Default:sList }
+
+add:
+    path:     tvshow/add
+    defaults: { _controller: TvShowManagerBundle:TvShow:add }
+
+list:
+    path:     tvshow/list
+    defaults: { _controller: TvShowManagerBundle:TvShow:list }
+
+show:
+    path:     tvshow/{id}/show
+    defaults: { _controller: TvShowManagerBundle:TvShow:show }
+
+edit:
+    path:     tvshow/edit
+    defaults: { _controller: TvShowManagerBundle:TvShow:edit }

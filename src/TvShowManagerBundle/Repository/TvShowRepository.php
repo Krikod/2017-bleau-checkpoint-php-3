@@ -10,4 +10,24 @@ namespace TvShowManagerBundle\Repository;
  */
 class TvShowRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function myFindAll()
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb->select('t', 'e as episode')
+            ->join('t.episodes', 'e');
+        return $qb->getQuery()->getResult();
+
+    }
+
+    public function myFindOneById($id)
+    {
+        $qb = $this->createQueryBuilder('t');
+        $qb->select('t')
+            ->where('t.id = :id')
+            ->join('t.episodes', 'e')
+            ->addSelect('e')
+            ->setParameter('id', $id);
+
+        return $qb->getQuery()->getSingleResult();
+    }
 }

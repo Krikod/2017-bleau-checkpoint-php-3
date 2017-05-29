@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}TvShowManagerBundle:TvShow:list{% endblock %}
+
+{% block body %}
+<h1>Welcome to the TvShow:list page</h1>
+    <div>
+        {% for tvshow in tvshows %}
+            {{ tvshow.name }}
+        {% endfor %}
+    </div>
+{% endblock %}
