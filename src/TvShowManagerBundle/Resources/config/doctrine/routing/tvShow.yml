@@ -1,0 +1,21 @@
+#Add a new tvShow
+new_tv_show:
+    path:  /add
+    defaults: { _controller: TvShowManagerBundle:TvShow:addTvShow }
+    methods: [GET, POST]
+
+list:
+    path:     /tvshow
+    defaults: { _controller: TvShowManagerBundle:TvShow:list }
+
+edit_tv_show:
+    path:     /{id}/edit
+    defaults: { _controller: TvShowManagerBundle:TvShow:edit }
+
+delete:
+    path:     /tvshow/delete
+    defaults: { _controller: TvShowManagerBundle:TvShow:delete }
+
+show:
+    path:     /tvshow/{id}/show
+    defaults: { _controller: TvShowManagerBundle:TvShow:show }

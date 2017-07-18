@@ -3,13 +3,32 @@
 namespace TvShowManagerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use TvShowManagerBundle\Entity\TvShow;
+use TvShowManagerBundle\Form\TvShowType;
 
 class TvShowController extends Controller
 {
-    public function addAction()
+    public function addTvShowAction(Request $request)
     {
+        $tvShow = new TvShow();
+        $form = $this->createForm(TvShowType::class, $tvShow);
+
+        $form->handleRequest($request); //récupère tout le tableau $_POST, récupère valeurs et clé, fait des sets = setName si clé 'name'
+
+//        if ($request->getMethod() == 'POST') = à:
+        // isValid utile si on fait de la validation de formulaire - il faut définir paramètres de validation (requirements)
+        if ($form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($tvShow);
+            $em->flush();
+
+            return $this->redirectToRoute('list');
+        }
+
         return $this->render('TvShowManagerBundle:TvShow:add.html.twig', array(
-            // ...
+            'form' => $form->createView()
         ));
     }
 
@@ -20,7 +39,8 @@ class TvShowController extends Controller
     public function listAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $tvShows = $em->getRepository('TvShowManagerBundle:TvShow')->myFindAll();
+        //TODO: Modifier méthode myfindall pour récupérer les TVSHOWS même si elles ne sont liées à aucun épisode (Finall met l'a série
+        $tvShows = $em->getRepository('TvShowManagerBundle:TvShow')->FindAll();
 
         return $this->render('TvShowManagerBundle:TvShow:list.html.twig', array(
             'tvshows' => $tvShows,

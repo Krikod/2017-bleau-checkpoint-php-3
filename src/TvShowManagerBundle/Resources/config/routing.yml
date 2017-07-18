@@ -2,22 +2,6 @@ tv_show_manager_homepage:
     path:     /
     defaults: { _controller: TvShowManagerBundle:Default:index }
 
-add:
-    path:     /tvshow/add
-    defaults: { _controller: TvShowManagerBundle:TvShow:add }
-
-list:
-    path:     /tvshow
-    defaults: { _controller: TvShowManagerBundle:TvShow:list }
-
-edit:
-    path:     /tvshow/edit
-    defaults: { _controller: TvShowManagerBundle:TvShow:edit }
-
-delete:
-    path:     /tvshow/delete
-    defaults: { _controller: TvShowManagerBundle:TvShow:delete }
-
-show:
-    path:     /tvshow/{id}/show
-    defaults: { _controller: TvShowManagerBundle:TvShow:show }
+tvShow_route:
+    prefix: /tvshow
+    resource: '@TvShowManagerBundle/Resources/config/doctrine/routing/tvShow.yml'

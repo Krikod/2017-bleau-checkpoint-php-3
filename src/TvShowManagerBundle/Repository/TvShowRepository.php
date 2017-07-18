@@ -19,7 +19,7 @@ class TvShowRepository extends \Doctrine\ORM\EntityRepository
         $qb->select('t')
             ->join('t.episodes', 'e')
             ->addSelect('e');
-        return $qb->getQuery()->getResult();
+        return $qb->getQuery()->getResult(); // condition if, pour ajouter série sans épisodes - si épisodes, on les prend.
     }
 
     /**

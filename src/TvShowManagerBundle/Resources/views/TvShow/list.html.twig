@@ -5,13 +5,16 @@
 {% block body %}
 
 
-<h1>tvshows 2</h1>
+<h1>TvShow List</h1>
+    <a href="{{ path('new_tv_show') }}">Créer une nouvelle TvShow</a>
     <div>
         {% for tvshow in tvshows %}
 
             <h1>{{ tvshow.name }}</h1>
             {% for episode in tvshow.episodes %}
-                {{ episode.name }}
+                <ul>{{ episode.name }}
+                <li><a href="{{ path('edit__tv_show', {id: tvshow.id}) }}">Editer</a></li>
+                </ul>
             {% endfor %}
             <h2><a href="{{ path('show', { 'id': tvshow.id }) }}">voir</a></h2>
 
